@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #faf8ef; /* 2248's light beige background */
+    touch-action: none; /* Prevent default touch behavior */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 10vw, 80px); /* Responsive font size */
+    color: #776e65; /* Dark brown from 2248 */
+    margin: 0;
+    font-weight: bold;
+}
+
+.score {
+    font-size: clamp(16px, 5vw, 24px); /* Responsive score text */
+    color: #776e65;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#game-board {
+    width: clamp(300px, 80vw, 400px); /* Responsive grid size */
+    height: clamp(300px, 80vw, 400px);
+    background-color: #bbada0; /* Grid background */
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    background-color: #cdc1b4; /* Empty tile color */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(20px, 4vw, 32px); /* Responsive tile text */
+    color: #776e65;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+/* Tile colors matching 2248 */
+.tile-2 { background-color: #eee4da; }
+.tile-4 { background-color: #ede0c8; }
+.tile-8 { background-color: #f2b179; color: #f9f6f2; }
+.tile-16 { background-color: #f59563; color: #f9f6f2; }
+.tile-32 { background-color: #f67c5f; color: #f9f6f2; }
+.tile-64 { background-color: #f65e3b; color: #f9f6f2; }
+.tile-128 { background-color: #edcf72; color: #f9f6f2; }
+.tile-256 { background-color: #edcc61; color: #f9f6f2; }
+.tile-512 { background-color: #edc850; color: #f9f6f2; }
+.tile-1024 { background-color: #edc53f; color: #f9f6f2; }
+.tile-2048 { background-color: #edc22e; color: #f9f6f2; }
+.tile-2248 { background-color: #3c3a32; color: #f9f6f2; }
+
+p {
+    color: #776e65;
+    font-size: clamp(14px, 3vw, 18px); /* Responsive instruction text */
+    margin-top: 20px;
+}
+
+@keyframes merge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.merging {
+    animation: merge 0.2s;
+}
+
+/* Ensure touch works on mobile */
+@media (max-width: 600px) {
+    #game-board {
+        gap: 5px;
+        padding: 5px;
+    }
+}
